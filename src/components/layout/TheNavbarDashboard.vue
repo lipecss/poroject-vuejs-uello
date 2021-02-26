@@ -1,6 +1,6 @@
 <template>
   <div class="menu">
-    <div class="menu-content">
+    <div class="menu__content">
       <img src="@/assets/logo.png" width="100%" height="100%" alt="">
       <button  @click.prevent="logout" class="default-button">{{ $t('buttons.logOut') }}</button>
     </div>
@@ -47,7 +47,7 @@ export default {
   background: $primary;
   color: #fff;
 
-  .menu-content {
+  .menu__content {
     width: 50px;
     margin: 10px 15px;
   }
@@ -62,7 +62,7 @@ export default {
     height: 100vh;
     width: 70px;
 
-  .menu-content {
+  .menu__content {
     margin: 10px;
 
     button {

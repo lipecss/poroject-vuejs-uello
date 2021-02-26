@@ -1,13 +1,9 @@
 <template>
-  <div class="syetem-body-page wrapper">
-    <div>
-      <TheNavbarDashboard />
-    </div>
+  <b-container fluid class="system-body-page">
+    <TheNavbarDashboard />
 
-    <div>
-      <router-view/>
-    </div>
-  </div>
+    <router-view/>
+  </b-container>
 </template>
 
 <script>
@@ -40,4 +36,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.system-body-page {
+  height: 100vh;
+  background: $gray2;
+}
 </style>
