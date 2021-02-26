@@ -64,7 +64,6 @@ export default {
       padding-right: 15px;
       padding-top: 15px;
       height: 100vh;
-
     }
   }
   @media screen and (min-width: 1024px) {}
