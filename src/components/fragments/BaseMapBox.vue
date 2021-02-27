@@ -1,9 +1,5 @@
 <template>
-  <div>
-    {{distance}}
-    {{duration}}
-      <div id="map"></div>
-  </div>
+  <div id="map"></div>
 </template>
 
 <script>
@@ -12,6 +8,7 @@ import { convertDistance, returnDuration } from '../../helpers/functions'
 import mapboxgl from 'mapbox-gl'
 import MapboxDirections from '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions'
 import '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions.css'
+import { locationsPoint } from '@enums/locations'
 
 export default {
   name: 'BaseMapBox',
@@ -29,23 +26,9 @@ export default {
       accessToken: process.env.VUE_APP_MAPBOX_KEY,
       mapStyle: 'mapbox://styles/mapbox/streets-v11',
       center: [-46.667965, -23.631854],
-      locations: [
-        { step: 1, locations: [-46.667944, -23.631864] },
-        { step: 2, locations: [-46.672679, -23.64197] },
-        { step: 3, locations: [-46.672285, -23.643118] },
-        { step: 4, locations: [-46.672739, -23.642616] },
-        { step: 5, locations: [-46.673592, -23.640889] },
-        { step: 6, locations: [-46.669941, -23.635918] },
-        { step: 7, locations: [-46.669941, -23.635918] },
-        { step: 8, locations: [-46.669591, -23.635345] },
-        { step: 9, locations: [-46.668461, -23.633484] },
-        { step: 10, locations: [-46.66831, -23.633789] },
-        { step: 11, locations: [-46.66767, -23.633735] },
-        { step: 12, locations: [-46.667217, -23.632824] },
-        { step: 13, locations: [-46.667965, -23.631854] }
-      ],
       distance: '',
-      duration: ''
+      duration: '',
+      isComplete: false
     }
   },
   props: {},
@@ -57,11 +40,11 @@ export default {
       var map = new mapboxgl.Map({
         accessToken: this.accessToken,
         container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v9',
-        center: [-46.667965, -23.631854], // starting position [lng, lat]
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [-46.667965, -23.631854],
         zoom: 15,
         minZoom: 14,
-        maxZoom: 15
+        maxZoom: 25
       })
 
       // Prearando para utilizar MapboxDirections
@@ -83,6 +66,10 @@ export default {
       */
       map.addControl(directions, 'top-left')
 
+      const startPoint = locationsPoint[locationsPoint.length - 1]
+      const endPoint = locationsPoint[0]
+      console.log(startPoint, endPoint)
+
       // --- Eventos do mapa ---
 
       // Evento disarado após o mapa carregar totalmemte
@@ -90,11 +77,11 @@ export default {
         /* Quando o mapa carregar, add os dois pontos.
           Aqui mockei os dois valores: Origem e Destino
         */
-        directions.setOrigin([-46.667965, -23.631854])
-        directions.setDestination([-46.670797, -23.639712])
+        directions.setOrigin(startPoint)
+        directions.setDestination(endPoint)
 
         new mapboxgl.Marker()
-          .setLngLat([-46.667965, -23.631854])
+          .setLngLat(startPoint)
           .addTo(map)
 
         /* Com o intuito de simular o entregador andando, criei um Interval simples.
@@ -105,21 +92,37 @@ export default {
         const el = document.createElement('div')
         el.className = 'marker'
 
-        const marker = new mapboxgl.Marker(el)
+        const marker = new mapboxgl.Marker({
+          element: el,
+          rotationAlignment: 'auto',
+          rotation: -14,
+          pitchAlignment: 'auto'
+        })
 
         // Faz o entregador andar
-        const length = this.locations.length
+        const length = locationsPoint.length
         let count = 0
 
         const timer = setInterval(() => {
-          count += 1
           if (count === length) {
             clearInterval(timer)
+            this.isComplete = true
           } else {
-            const current = this.locations[count].locations
+            const current = locationsPoint[count]
+            marker.remove()
+
+            console.log(count)
+            marker.setRotation(locationsPoint[count][2])
+
             directions.setDestination(current)
             marker.setLngLat(current).addTo(map)
-            // marker.remove()
+
+            map.flyTo({
+              center: current,
+              essential: true
+            })
+
+            count += 1
           }
         }, 2000)
       })
@@ -127,8 +130,13 @@ export default {
       /* Evenntos do MapboxDirections
         Esse evento diparada a cada atualização que houver nas directions
       */
+      // const newArray = []
       directions.on('route', async (e) => {
         const summary = e.route[0]
+
+        // var destination = directions.getDestination()
+        // newArray.push(destination.geometry.coordinates)
+        // console.log('newArray -> ', e)
 
         // Passo os valores para as funções de conversao e entao atribuo ao data
         this.distance = await convertDistance(summary.distance)
@@ -146,11 +154,15 @@ export default {
   width: 100%;
   height: 800px;
 }
+canvas:focus {
+  outline: none;
+  border: none
+}
 .marker {
-  background-image: url(https://docs.mapbox.com/help/demos/custom-markers-gl-js/mapbox-icon.png);
+  background-image: url('~@assets/truck.png');
   background-size: cover;
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
   cursor: pointer;
 }
