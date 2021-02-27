@@ -8,8 +8,8 @@
           </div>
         </b-col>
         <b-col sm="12" xl="9">
-          <div class="color7">
-            mapa
+          <div class="dashborad-page__content-map">
+            <BaseMapBox />
           </div>
         </b-col>
       </b-row>
@@ -37,7 +37,9 @@ export default {
     return {}
   },
   props: {},
-  components: {},
+  components: {
+    BaseMapBox: () => import('@components/fragments/BaseMapBox')
+  },
   computed: {},
   methods: {},
   filters: {},

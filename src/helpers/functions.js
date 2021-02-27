@@ -152,3 +152,21 @@ export const removeLocalRole = (role) => {
 export const getLocalRole = () => {
   return localStorage.getItem('system_role')
 }
+
+// Funcao que converte a distancia e retorna o valor em KM fixed(2)
+export const convertDistance = (value) => {
+  const distance = (value / 1000).toFixed(2)
+  return distance
+}
+
+// Funcao que converte a distancia e retorna o valor em KM fixed(2)
+export const returnDuration = (duration) => {
+  duration = Number(duration)
+  var h = Math.floor(duration / 3600)
+  var m = Math.floor(duration % 3600 / 60)
+
+  var hour = h > 0 ? h + (h === 1 ? ' hour, ' : ' hours, ') : ''
+  var minute = m > 0 ? m + (m === 1 ? ' minute, ' : ' minutes, ') : ''
+
+  return hour + minute
+}
