@@ -56,8 +56,7 @@ export default {
   @media screen and (min-width: 425px) {}
   @media screen and (min-width: 576px) {}
   @media screen and (min-width: 768px) {}
-  @media screen and (min-width: 1024px) {}
-  @media screen and (min-width: 1400px) {
+  @media screen and (min-width: 1024px) {
     top: 0;
     left: 0;
     right: initial;
@@ -73,6 +72,7 @@ export default {
       }
     }
   }
+  @media screen and (min-width: 1400px) {}
   @media screen and (min-width: 1600px) {}
 }
 </style>

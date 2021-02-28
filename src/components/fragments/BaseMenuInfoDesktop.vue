@@ -7,8 +7,8 @@
             <font-awesome-icon :icon="['far', 'question-circle']" /> Support Center
           </span>
         </template>
-        <b-dropdown-item>Tell some Issue</b-dropdown-item>
-        <b-dropdown-item>Did you see something wrong?</b-dropdown-item>
+        <b-dropdown-item>Conte-nos seu problema</b-dropdown-item>
+        <b-dropdown-item>Viu algo de errado?</b-dropdown-item>
       </b-dropdown>
     </div>
 
@@ -88,7 +88,7 @@ export default {
   created () {},
   beforeMount () {},
   mounted () {
-    this.setInitValues(this.liveDatas || 0)
+    this.setValues(this.liveDatas || 0)
   },
   beforeUpdate () {},
   updated () {},
@@ -111,7 +111,7 @@ export default {
   },
   computed: {},
   methods: {
-    setInitValues (value) {
+    setValues (value) {
       this.distance = value.distance
       this.duration = value.duration
       this.status = value.status
@@ -123,7 +123,7 @@ export default {
   filters: {},
   watch: {
     liveDatas (value) {
-      if (value) this.setInitValues(value)
+      if (value) this.setValues(value)
       if (value.status === 'delivered') {
         this.runAnimation = true
         this.udpateMockDatas()

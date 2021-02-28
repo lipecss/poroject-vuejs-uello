@@ -63,7 +63,6 @@ export default {
   filters: {},
   watch: {
     runAnimation (value) {
-      console.log('aquuu', value)
       if (value === true) this.updateChart()
     }
   }

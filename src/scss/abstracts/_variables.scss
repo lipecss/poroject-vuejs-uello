@@ -14,3 +14,12 @@ $gray2: #ebebf0;
 $gray-hard: #474747;
 $color-facebook: #37559C;
 $hover-facebook: #2d4682;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
