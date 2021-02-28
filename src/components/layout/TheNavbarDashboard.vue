@@ -55,24 +55,24 @@ export default {
   @media screen and (min-width: 375px) {}
   @media screen and (min-width: 425px) {}
   @media screen and (min-width: 576px) {}
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) {}
+  @media screen and (min-width: 1024px) {}
+  @media screen and (min-width: 1400px) {
     top: 0;
     left: 0;
     right: initial;
     height: 100vh;
     width: 70px;
 
-  .menu__content {
-    margin: 10px;
+    .menu__content {
+       margin: 10px;
 
-    button {
-      bottom: 15px;
-      left: 5px;
+      button {
+        bottom: 15px;
+        left: 5px;
+      }
     }
   }
-
-  }
-  @media screen and (min-width: 1024px) {}
   @media screen and (min-width: 1600px) {}
 }
 </style>

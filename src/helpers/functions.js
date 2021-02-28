@@ -160,13 +160,15 @@ export const convertDistance = (value) => {
 }
 
 // Funcao que converte a distancia e retorna o valor em KM fixed(2)
-export const returnDuration = (duration) => {
+export const returnDuration = async (duration) => {
   duration = Number(duration)
   var h = Math.floor(duration / 3600)
   var m = Math.floor(duration % 3600 / 60)
+  var s = Math.ceil(duration - (h * 3600) - (m * 60))
 
-  var hour = h > 0 ? h + (h === 1 ? ' hour, ' : ' hours, ') : ''
-  var minute = m > 0 ? m + (m === 1 ? ' minute, ' : ' minutes, ') : ''
+  var hour = h > 0 ? h + (h === 1 ? ' hora, ' : ' horas, ') : ''
+  var minute = m > 0 ? m + (m === 1 ? ' minuto ' : ' minutos ') : ''
+  var second = s > 0 ? s + (s === 1 ? ' segundo' : ' segundos') : ''
 
-  return hour + minute
+  return hour + minute + second
 }

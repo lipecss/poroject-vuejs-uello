@@ -27,8 +27,7 @@ export default {
       mapStyle: 'mapbox://styles/mapbox/streets-v11',
       center: [-46.667965, -23.631854],
       distance: '',
-      duration: '',
-      isComplete: false
+      duration: ''
     }
   },
   props: {},
@@ -68,7 +67,6 @@ export default {
 
       const startPoint = locationsPoint[locationsPoint.length - 1]
       const endPoint = locationsPoint[0]
-      console.log(startPoint, endPoint)
 
       // --- Eventos do mapa ---
 
@@ -105,13 +103,12 @@ export default {
 
         const timer = setInterval(() => {
           if (count === length) {
-            clearInterval(timer)
             this.isComplete = true
+            clearInterval(timer)
           } else {
             const current = locationsPoint[count]
             marker.remove()
 
-            console.log(count)
             marker.setRotation(locationsPoint[count][2])
 
             directions.setDestination(current)
@@ -134,13 +131,17 @@ export default {
       directions.on('route', async (e) => {
         const summary = e.route[0]
 
-        // var destination = directions.getDestination()
-        // newArray.push(destination.geometry.coordinates)
-        // console.log('newArray -> ', e)
-
         // Passo os valores para as funções de conversao e entao atribuo ao data
-        this.distance = await convertDistance(summary.distance)
-        this.duration = await returnDuration(summary.duration)
+        const distance = await convertDistance(summary.distance)
+        const duration = await returnDuration(summary.duration)
+
+        const status = {
+          distance,
+          duration,
+          status: distance <= 0 ? 'delivered' : 'delivering'
+        }
+
+        this.$emit('apiStatus', status)
       })
     }
   },
@@ -152,7 +153,7 @@ export default {
 <style lang="scss">
 #map {
   width: 100%;
-  height: 800px;
+  height: 93vh;
 }
 canvas:focus {
   outline: none;
