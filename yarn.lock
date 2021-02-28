@@ -7546,22 +7546,12 @@ map-obj@^4.0.0:
   resolved "https://registry.yarnpkg.com/map-obj/-/map-obj-4.1.0.tgz#b91221b542734b9f14256c0132c897c5d7256fd5"
   integrity sha512-glc9y00wgtwcDmp7GaE/0b0OnxpNJsVf3ael/An6Fe2Q51LLwN1er6sdomLRzz5h0+yMpiYLhWYF5R7HeqVd4g==
 
-map-promisified@latest:
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/map-promisified/-/map-promisified-0.4.0.tgz#c33cc8b93d2d28b0df0b0937ffabcd145b9b9a82"
-  integrity sha512-VYBQ3rTMykg2CSVgSrZBvhAwxuIuYbAHCtjjq/ATnD5kMq7I/ROmMBckwlmfwtEIx9yXufF+3QY5WxUH5EeM/Q==
-
 map-visit@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npm.taobao.org/map-visit/download/map-visit-1.0.0.tgz#ecdca8f13144e660f1b5bd41f12f3479d98dfb8f"
   integrity sha1-7Nyo8TFE5mDxtb1B8S80edmN+48=
   dependencies:
     object-visit "^1.0.0"
-
-mapbox-gl-vue@^2.0.4:
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/mapbox-gl-vue/-/mapbox-gl-vue-2.0.4.tgz#225fc85fd13fdd8ccc6f40048d2c29424bcf9f39"
-  integrity sha512-vJKoZh4tlvZnGxgJfWNjSjeKmzIKl2AFWXfRsEIt7Itb1efAGsMc9BzTb6C/nalel+z3cDVIpIo/Q8AmDPqC7w==
 
 mapbox-gl@^2.1.1:
   version "2.1.1"
@@ -11372,13 +11362,6 @@ vue-loader@^15.9.2:
     loader-utils "^1.1.0"
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
-
-vue-mapbox@^0.4.1:
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/vue-mapbox/-/vue-mapbox-0.4.1.tgz#c1cac11c33c46a78a2b58797686371a4c32ffb4a"
-  integrity sha512-F1ebtVpRSvl6HDiHCWm5TxBNDy5WCoNJOZWj4ub6XQzht15GfUpAn4bHIeVzrUHr3fi1PFEDbxnzPeG1S9o0Tg==
-  dependencies:
-    map-promisified latest
 
 vue-meta@^2.4.0:
   version "2.4.0"
