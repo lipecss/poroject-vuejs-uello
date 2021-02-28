@@ -3,6 +3,33 @@ import VueI18n from 'vue-i18n'
 
 Vue.use(VueI18n)
 
+function checkDefaultLanguage () {
+  let matched = null
+  const languages = Object.getOwnPropertyNames(loadLocaleMessages())
+  languages.forEach(lang => {
+    if (lang === navigator.language) {
+      matched = lang
+    }
+  })
+  if (!matched) {
+    languages.forEach(lang => {
+      const languagePartials = navigator.language.split('-')[0]
+      if (lang === languagePartials) {
+        matched = lang
+      }
+    })
+  }
+  if (!matched) {
+    languages.forEach(lang => {
+      const languagePartials = navigator.language.split('-')[0]
+      if (lang.split('-')[0] === languagePartials) {
+        matched = lang
+      }
+    })
+  }
+  return matched
+}
+
 function loadLocaleMessages () {
   const locales = require.context('./locales', true, /[A-Za-z0-9-_,\s]+\.json$/i)
   const messages = {}
@@ -17,7 +44,7 @@ function loadLocaleMessages () {
 }
 
 export default new VueI18n({
-  locale: process.env.VUE_APP_I18N_LOCALE || 'pt-BR',
+  locale: checkDefaultLanguage() || process.env.VUE_APP_I18N_LOCALE || 'pt-BR',
   fallbackLocale: process.env.VUE_APP_I18N_FALLBACK_LOCALE || 'en',
   messages: loadLocaleMessages()
 })

@@ -9,7 +9,7 @@
       <b-col lg="12" class="dashborad-page__content">
         <b-row>
           <b-col lg="12" class="d-none d-md-none d-xl-block text-right">
-            <h4 class="default-title mt-10-mb-10">| Fulano de Tal da Silva</h4>
+            <h4 class="default-title mt-10-mb-10">| {{ $t('pages.system.user.dashboardPage.html.user') }}</h4>
           </b-col>
         </b-row>
         <b-row>

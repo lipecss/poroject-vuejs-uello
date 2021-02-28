@@ -12,6 +12,7 @@ import 'vue-css-donut-chart/dist/vcdonut.css'
 import i18n from '@/i18n'
 import '@/plugins/fontAwesome'
 import '@/plugins/bootstrap'
+import '@/plugins/vue-flag'
 
 Vue.mixin(myMixins)
 

@@ -9,7 +9,7 @@
         </div>
 
         <div class="login-page__content--form" order="1">
-          <h1>Olá Parceiro</h1>
+          <h1>{{ $t('pages.website.loginPage.html.message') }}</h1>
           <p>{{ $t('pages.website.loginPage.title') }}</p>
 
           <b-form-input
@@ -37,6 +37,7 @@
         </div>
 
         <div class="login-page__content--footer">
+          <TheI18nButton style="text-align: center;"/>
           <p>Copyright © 2021 Uello. All Rights Reserved.</p>
         </div>
       </b-col>
@@ -81,7 +82,9 @@ export default {
     }
   },
   props: {},
-  components: {},
+  components: {
+    TheI18nButton: () => import('@components/layout/TheI18nButton')
+  },
   computed: {
     ...mapGetters('ModuleUser', [
       'userRole'
@@ -157,7 +160,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .login-page {
   .login-page__content {
     display: flex;
@@ -228,8 +231,11 @@ export default {
   @media screen and (min-width: 768px) {}
   @media screen and (min-width: 1024px) {
     .login-page__content {
+      &--logo {
+        top: 25px;
+      }
       &--form {
-        top: 0px;
+        top: 10px;
       }
     }
   }

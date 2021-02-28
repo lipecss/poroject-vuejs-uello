@@ -3,12 +3,12 @@
     <div class="menu-info-desktop__head">
       <b-dropdown size="lg" class="m-3 btn btn-lg">
         <template #button-content>
-          <span id="menu-info-desktop__head--support">
-            <font-awesome-icon :icon="['far', 'question-circle']" /> Support Center
+          <span class="menu-info-desktop__head--support">
+            <font-awesome-icon :icon="['far', 'question-circle']" /> {{ $t('components.BaseMenuInfoDesktop.btnMessage') }}
           </span>
         </template>
-        <b-dropdown-item>Conte-nos seu problema</b-dropdown-item>
-        <b-dropdown-item>Viu algo de errado?</b-dropdown-item>
+        <b-dropdown-item>{{ $t('components.BaseMenuInfoDesktop.dropdownList.first') }}</b-dropdown-item>
+        <b-dropdown-item>{{ $t('components.BaseMenuInfoDesktop.dropdownList.second') }}</b-dropdown-item>
       </b-dropdown>
     </div>
 
@@ -19,12 +19,15 @@
     <div class="menu-info-desktop__status">
 
       <div class="menu-info-desktop__status--about text-left">
-        <p class="menu-info-desktop__status--about--title" v-if="status === 'delivering'">Saiu para Entrega</p>
-        <h4 class="menu-info-desktop__status--about--success text-center" v-else>🎉 Parabéns - Pedido Entregue 🎉</h4>
+        <p class="menu-info-desktop__status--about--title" v-if="status === 'delivering'">
+          {{ $t('components.BaseMenuInfoDesktop.status.about.title') }}
+        </p>
+        <h4 class="menu-info-desktop__status--about--success text-center" v-else>
+          {{ $t('components.BaseMenuInfoDesktop.status.about.titleVelse') }}
+        </h4>
         <p
-          class="menu-info-desktop__status--about--description"
-          v-if="status === 'delivering'">
-          Seu pedido da <strong>{{shipment.company.name}}</strong> saiu para entrega, e será <strong>entregue</strong> no <strong>endereço</strong>
+          class="menu-info-desktop__status--about--description">
+          {{ $t('components.BaseMenuInfoDesktop.status.about.description.start') }} <strong>{{shipment.company.name}}</strong> {{ $t('components.BaseMenuInfoDesktop.status.about.description.middle') }} <strong>{{ $t('components.BaseMenuInfoDesktop.status.about.description.action') }}</strong> {{ $t('components.BaseMenuInfoDesktop.status.about.description.preposition') }} <strong>{{ $t('components.BaseMenuInfoDesktop.status.about.description.address') }}</strong>
         </p>
       </div>
 
@@ -49,12 +52,12 @@
             <div class="menu-info-desktop__status--shippments--infos">
               <ul>
                 <li>
-                  <span class="font-weight">Sua entrega é a nº:</span><span style="color: #e63b4f">{{ shipment.number }}</span>
+                  <span class="font-weight">{{ $t('components.BaseMenuInfoDesktop.status.shippments.shipment') }}</span><span style="color: #e63b4f">{{ shipment.number }}</span>
                 </li>
-                <li><span class="font-weight">Entrega Atual:</span>{{ shipment.currentShipment }}</li>
-                <li><span class="font-weight">Quantidade de Volume:</span> {{ shipment.measures }}</li>
-                <li><span class="font-weight">Motorista:</span> {{ shipment.truckDriver }}</li>
-                <li><span class="font-weight">Horário Estimado:</span> 16:30 - 17:50</li>
+                <li><span class="font-weight">{{ $t('components.BaseMenuInfoDesktop.status.shippments.current') }}</span>{{ shipment.currentShipment }}</li>
+                <li><span class="font-weight">{{ $t('components.BaseMenuInfoDesktop.status.shippments.measure') }}</span> {{ shipment.measures }}</li>
+                <li><span class="font-weight">{{ $t('components.BaseMenuInfoDesktop.status.shippments.truckdriver') }}</span> {{ shipment.truckDriver }}</li>
+                <li><span class="font-weight">{{ $t('components.BaseMenuInfoDesktop.status.shippments.estimatedTime') }}</span> 16:30 - 17:50</li>
               </ul>
             </div>
           </b-col>
@@ -63,13 +66,13 @@
 
       <div class="menu-info-desktop__status--distance text-left ">
         <div class="menu-info-desktop__status--location--content">
-          <p><strong>Distância:</strong> {{distance}} km</p>
-          <p class="ml-30"><strong>Tempo de Entrega:</strong> ≈ {{duration}}</p>
+          <p><strong>{{ $t('components.BaseMenuInfoDesktop.status.distance.distance') }}</strong> {{distance}} km</p>
+          <p class="ml-30"><strong>{{ $t('components.BaseMenuInfoDesktop.status.distance.duration') }}</strong> ≈ {{duration}}</p>
         </div>
       </div>
 
       <div class="menu-info-desktop__status--historic">
-        <p class="default-title"><font-awesome-icon :icon="['fa', 'undo']" style="margin-right: 10px"/>Histórico</p>
+        <p class="default-title"><font-awesome-icon :icon="['fa', 'undo']" style="margin-right: 10px"/>{{ $t('components.BaseMenuInfoDesktop.status.historic') }}</p>
         <ul>
           <li v-for="historic in shipment.historics" :key="historic.id">
             <p>{{historic.message}}</p>
@@ -145,6 +148,11 @@ export default {
   padding: 0 15px;
   box-shadow: 13px 1px 5px -4px rgb(0 0 0 / 35%);
   overflow: auto;
+  .menu-info-desktop__head {
+    &--support {
+      font-size: 15px;
+    }
+  }
 
   .menu-info-desktop__status {
 

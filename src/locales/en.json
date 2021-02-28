@@ -11,13 +11,7 @@
       "user": {
         "dashboardPage": {
           "html": {
-            "title": "Dashboard"
-          }
-        }
-      },
-      "adm": {
-        "dashboardPage": {
-          "html": {
+            "user": "Little dude from across the street",
             "title": "Dashboard"
           }
         }
@@ -26,45 +20,23 @@
     "website": {
       "loginPage": {
         "html": {
-          "title": "Login"
+          "title": "Login",
+          "message": "Hello Partner",
+          "subMessage": "Wlcome to here :D"
         },
-        "title": "Welcome to"
-      },
-      "homePage": {
-        "html": {
-          "title": "Home"
-        },
-        "title": "Home"
-      },
-      "aboutPage": {
-        "html": {
-          "title": "About"
-        },
-        "title": "About"
+        "title": "Welcome to here :D"
       }
     }
   },
-  "menu": {
-    "system": {
-      "profile": "Profile"
-    },
-    "website": {
-      "home": "Home",
-      "about": "About",
-      "login": "ADM"
-    }
-  },
   "buttons": {
-    "save": "Save",
-    "close": "Close",
-    "cancel": "Cancel",
-    "create": "Create",
-    "delete": "Delete",
     "forgotPassword": "Forgot password?",
     "newUser": "I'm a newbie!",
     "signIn": "Login",
-    "logOut": "Logout",
-    "send": "Send"
+    "logOut": "Exit",
+    "i18n": {
+      "portuguese": "Portuguese",
+      "english": "English"
+    }
   },
   "inputs": {
     "username": {
@@ -75,8 +47,65 @@
       "name": "inputpassword"
     }
   },
-  "errors": {
-    "api": {}
+  "components": {
+    "BaseMenuInfoDesktop": {
+      "btnMessage": "Support Center",
+      "dropdownList": {
+        "first": "Tell us about your problem",
+        "second": "Did you see some wrong?"
+      },
+      "status": {
+        "about": {
+          "title": " Out for delivery",
+          "titleVelse": "🎉 Wonder - Order Delivered 🎉",
+          "description": {
+            "start": "Your order from",
+            "middle": "left for delivery, and will",
+            "action": "delivered",
+            "preposition": "to",
+            "address": "address"
+          }
+        },
+        "shippments": {
+          "shipment": "Your order is nº:",
+          "current": "Current Order:",
+          "measure": "Measure:",
+          "truckdriver": "Driver:",
+          "estimatedTime": "Estimated Time:"
+        },
+        "distance": {
+          "distance": "Distance",
+          "duration": "Delivery time:"
+        },
+        "historic": "Historic"
+      }
+    },
+    "BaseMenuInfoMobile": {
+      "status": "Status Order",
+      "estimatedTime": "Estimated Time"
+    },
+    "BaseMobileCard": {
+      "status": {
+        "about": {
+          "title": " Out for delivery",
+          "titleVelse": "🎉 Wonder - Order Delivered 🎉",
+          "description": {
+            "start": "Your order from",
+            "middle": "left for delivery, and will",
+            "action": "delivered",
+            "preposition": "to",
+            "address": "address"
+          }
+        },
+        "shippments": {
+          "shipment": "Your order is nº:",
+          "current": "Current Order:",
+          "measure": "Measure:",
+          "truckdriver": "Driver:",
+          "estimatedTime": "Estimated Time:"
+        }
+      }
+    }
   },
   "messages": {
     "general": {},

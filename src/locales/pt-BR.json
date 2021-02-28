@@ -11,13 +11,7 @@
       "user": {
         "dashboardPage": {
           "html": {
-            "title": "Dashboard"
-          }
-        }
-      },
-      "adm": {
-        "dashboardPage": {
-          "html": {
+            "user": "Fulano de Tal da SIlva",
             "title": "Dashboard"
           }
         }
@@ -26,45 +20,23 @@
     "website": {
       "loginPage": {
         "html": {
-          "title": "Login"
+          "title": "Login",
+          "message": "Olá Parceiro",
+          "subMessage": "Bem vindo aqui :D"
         },
         "title": "Bem vindo ao"
-      },
-      "homePage": {
-        "html": {
-          "title": "Home"
-        },
-        "title": "Entreada"
-      },
-      "aboutPage": {
-        "html": {
-          "title": "Sobre"
-        },
-        "title": "Sobre"
       }
     }
   },
-  "menu": {
-    "system": {
-      "profile": "Perfil"
-    },
-    "website": {
-      "home": "Entreada",
-      "about": "Sobre",
-      "login": "ADM"
-    }
-  },
   "buttons": {
-    "save": "Salvar",
-    "close": "Fechar",
-    "cancel": "Cancelar",
-    "create": "Criar",
-    "delete": "Deletar",
     "forgotPassword": "Esqueceu a senha?",
     "newUser": "Sou novato!",
     "signIn": "Entrar",
     "logOut": "Sair",
-    "send": "Enviar"
+    "i18n": {
+      "portuguese": "Portugûes",
+      "english": "Inglês"
+    }
   },
   "inputs": {
     "username": {
@@ -75,8 +47,66 @@
       "name": "inputpassword"
     }
   },
-  "errors": {
-    "api": {}
+  "components": {
+    "BaseMenuInfoDesktop": {
+      "btnMessage": "Central de Suporte",
+      "dropdownList": {
+        "first": "Conte-nos seu problema",
+        "second": "Viu algo de errado?"
+      },
+      "status": {
+        "about": {
+          "title": "Saiu para Entrega",
+          "titleVelse": "🎉 Parabéns - Pedido Entregue 🎉",
+          "description": {
+            "start": "Seu pedido da",
+            "middle": "saiu para entrega, e será",
+            "action": "entregue",
+            "preposition": "no",
+            "address": "endereço"
+          }
+        },
+        "shippments": {
+          "shipment": "Sua entrega é a nº:",
+          "current": "Entrega Atual:",
+          "measure": "Quantidade de Volume:",
+          "truckdriver": "Motorista:",
+          "estimatedTime": "Horário Estimado:"
+        },
+        "distance": {
+          "distance": "Distância",
+          "duration": "Tempo de Entrega:"
+        },
+        "historic": "Histórico"
+      }
+    },
+    "BaseMenuInfoMobile": {
+      "status": "Status do pedido",
+      "estimatedTime": "Horário estimádo"
+    },
+    "BaseMobileCard": {
+      "status": {
+        "about": {
+          "title": "Saiu para Entrega",
+          "titleVelse": "🎉 Parabéns - Pedido Entregue 🎉",
+          "description": {
+            "start": "Seu pedido da",
+            "middle": "saiu para entrega, e será",
+            "action": "entregue",
+            "preposition": "no",
+            "address": "endereço",
+            "success": "com sucesso no"
+          },
+          "shippments": {
+            "shipment": "Sua entrega é a nº:",
+            "current": "Entrega Atual:",
+            "measure": "Quantidade de Volume:",
+            "truckdriver": "Motorista:",
+            "estimatedTime": "Horário Estimado:"
+          }
+        }
+      }
+    }
   },
   "messages": {
     "general": {},
