@@ -11,13 +11,19 @@ export const myMixins = {
   },
   methods: {
     ...mapActions([
-      'setBlockUi'
+      'setBlockUi',
+      'clearStore'
     ]),
     ...mapActions('ModuleLogin', [
-      'changeLogged'
+      'changeLogged',
+      'clearLogin'
     ]),
     ...mapActions('ModuleUser', [
-      'changeUserRole'
+      'changeUserRole',
+      'clearUser'
+    ]),
+    ...mapActions('ModuleErrors', [
+      'clearErrors'
     ]),
     changeBlockUi (value) {
       if (value) {
@@ -51,6 +57,12 @@ export const myMixins = {
     logoutEvent () {
       // Altera a role local
       this.changeLogedRole(false, '')
+
+      // Limpa Store
+      this.clearStore()
+      this.clearErrors()
+      this.clearUser()
+      this.clearLogin()
 
       // Remove o token local
       removeLocalToken()

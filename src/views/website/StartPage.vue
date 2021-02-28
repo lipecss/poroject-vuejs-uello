@@ -1,8 +1,6 @@
 <template>
   <div>
     <BaseNewContentServiceWorker propId="basenewcontentalert" propText="Foi encontrada uma nova versão do site!" propButtonText="Atualizar Site" :propHasNewContent="updateExistsServiceWorker" :propRegistrationServiceWorkerContent="registrationServiceWorker" @close-base-new-content-service-worker="changeExistsServiceWorker($event)" />
-
-    <TheNavbarDefault />
     <router-view/>
   </div>
 </template>
@@ -45,7 +43,6 @@ export default {
   },
   props: {},
   components: {
-    TheNavbarDefault: () => import('@components/layout/TheNavbarDefault'),
     BaseNewContentServiceWorker: () => import('@components/fragments/BaseNewContentServiceWorker')
   },
   computed: {},
