@@ -38,6 +38,16 @@
         </ul>
       </div>
 
+      <div class="card-info-mobile__content--historic">
+        <p class="default-title text-center"><font-awesome-icon :icon="['fa', 'undo']" style="margin-right: 10px"/>{{ $t('components.BaseMenuInfoDesktop.status.historic') }}</p>
+        <ul>
+          <li v-for="historic in shipment.historics" :key="historic.id">
+            <p>{{historic.message}}</p>
+            <span>{{historic.date}}</span>
+          </li>
+        </ul>
+      </div>
+
     </div>
   </div>
 </template>
@@ -172,8 +182,75 @@ export default {
         }
       }
     }
+
+    &--historic {
+      border: 2px solid #e63b4f;
+      border-radius: 6px;
+      padding-top: 10px;
+      overflow-y: auto;
+
+      ul {
+        list-style: none;
+        text-align: left;
+
+        li {
+          margin-bottom: 10px;
+          position: relative;
+
+          &::after {
+            content: "";
+            position: absolute;
+            width: 3px;
+            background-color: $primary;
+            top: 2px;
+            bottom: 0;
+            left: -7.5%;
+            height: 59px;
+            margin-left: -3px;
+          }
+
+            &:last-child:after {
+              content: '';
+              background-color: transparent;
+            }
+
+          p {
+            font-weight: 600;
+            margin-bottom: 0;
+
+            &::after {
+              content: "";
+              position: absolute;
+              width: 20px;
+              height: 20px;
+              left: -28px;
+              background-color: white;
+              border: 3px solid $primary;
+              top: 1px;
+              border-radius: 50%;
+              z-index: 1;
+            }
+          }
+          span {
+            font-weight: 100;
+          }
+        }
+      }
+    }
   }
-  @media screen and (min-width: 375px) {}
+  @media screen and (min-width: 375px) {
+    .card-info-mobile__content {
+      &--historic {
+        ul {
+          li {
+            &::after {
+              left: -6.2%;
+            }
+          }
+        }
+      }
+    }
+  }
   @media screen and (min-width: 425px) {
     .card-info-mobile__header {
       font-size: 18px;
@@ -210,11 +287,45 @@ export default {
           }
         }
       }
+
+      &--historic {
+        ul {
+          li {
+            &::after {
+              left: -5.5%;
+            }
+          }
+        }
+      }
     }
   }
   @media screen and (min-width: 576px) {}
-  @media screen and (min-width: 768px) {}
-  @media screen and (min-width: 1024px) {}
+  @media screen and (min-width: 768px) {
+    .card-info-mobile__content {
+      &--historic {
+        ul {
+          li {
+            &::after {
+              left: -2.7%;
+            }
+          }
+        }
+      }
+    }
+  }
+  @media screen and (min-width: 1024px) {
+    .card-info-mobile__content {
+      &--historic {
+        ul {
+          li {
+            &::after {
+              left: -2%;
+            }
+          }
+        }
+      }
+    }
+  }
   @media screen and (min-width: 1400px) {}
   @media screen and (min-width: 1600px) {}
 }

@@ -176,7 +176,7 @@ export default {
       }
     }
 
-    &--location{
+    &--location {
       margin: 20px 0;
       &--content {
         &--icon {
@@ -218,10 +218,41 @@ export default {
 
         li {
           margin-bottom: 10px;
+          position: relative;
+
+          &::after {
+            content: "";
+            position: absolute;
+            width: 3px;
+            background-color: $primary;
+            top: 2px;
+            bottom: 0;
+            left: -4.3%;
+            height: 59px;
+            margin-left: -3px;
+          }
+
+            &:last-child:after {
+              content: '';
+              background-color: transparent;
+            }
 
           p {
             font-weight: 600;
             margin-bottom: 0;
+
+            &::after {
+              content: "";
+              position: absolute;
+              width: 20px;
+              height: 20px;
+              left: -28px;
+              background-color: white;
+              border: 3px solid $primary;
+              top: 1px;
+              border-radius: 50%;
+              z-index: 1;
+            }
           }
           span {
             font-weight: 100;
