@@ -13,7 +13,7 @@
     </div>
 
     <div class="menu-info-desktop__progress">
-      progress Bar
+      <BaseTimeLineShipment :steps="currentStep"/>
     </div>
 
     <div class="menu-info-desktop__status">
@@ -100,7 +100,13 @@ export default {
       status: null,
       distance: 0,
       duration: 0,
-      runAnimation: false
+      runAnimation: false,
+      currentStep: [
+        { description: 'Solicitação', iconClass: 'fas', icon: 'inbox', active: true },
+        { description: 'Pedido em separação', iconClass: 'fas', icon: 'stopwatch', active: true },
+        { description: 'Motorista em trânsito', iconClass: 'fas', icon: 'car-alt', active: true },
+        { description: 'Pedido entregue', iconClass: 'fas', icon: 'check', active: false }
+      ]
     }
   },
   props: {
@@ -108,6 +114,7 @@ export default {
     liveDatas: { type: Object }
   },
   components: {
+    BaseTimeLineShipment: () => import('@components/fragments/BaseTimeLineShipment'),
     BaseDonut: () => import('@components/fragments/BaseDonut')
   },
   computed: {},
@@ -126,6 +133,7 @@ export default {
     liveDatas (value) {
       if (value) this.setValues(value)
       if (value.status === 'delivered') {
+        this.currentStep[3].active = true
         this.runAnimation = true
         this.udpateMockDatas()
       }
