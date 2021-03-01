@@ -17,7 +17,7 @@
             <li v-for="i in 4" :key="i">{{i}}</li>
           </ul>
         </div>
-        <div class="">
+        <div>
           <p>Status do pedido: Saiu para Entrega</p>
           <p>Horário estimádo: 16:34 - 18:00</p>
         </div>
@@ -39,7 +39,7 @@ export default {
   destroyed () {},
   data () {
     return {
-      status: 'delivering',
+      status: null,
       distance: 0,
       duration: 0,
       runAnimation: false

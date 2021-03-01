@@ -20,7 +20,7 @@
           </b-col>
           <b-col sm="12" xl="9">
             <div class="dashborad-page__content-map">
-              <BaseMapBox @apiStatus="datasFromAPI"/>
+              <!-- <BaseMapBox @apiStatus="datasFromAPI"/> -->
             </div>
           </b-col>
         </b-row>
@@ -61,8 +61,8 @@ export default {
   components: {
     BaseMenuInfoMobile: () => import('@components/fragments/BaseMenuInfoMobile'),
     BaseMenuInfoDesktop: () => import('@components/fragments/BaseMenuInfoDesktop'),
-    BaseMobileCard: () => import('@components/fragments/BaseMobileCard'),
-    BaseMapBox: () => import('@components/fragments/BaseMapBox')
+    BaseMobileCard: () => import('@components/fragments/BaseMobileCard')
+    // BaseMapBox: () => import('@components/fragments/BaseMapBox')
   },
   computed: {},
   methods: {

@@ -19,7 +19,7 @@
     <div class="menu-info-desktop__status">
 
       <div class="menu-info-desktop__status--about text-left">
-        <p class="menu-info-desktop__status--about--title" v-if="status === 'delivering'">
+        <p class="menu-info-desktop__status--about--title" v-if="status === 'delivering' || status === null">
           {{ $t('components.BaseMenuInfoDesktop.status.about.title') }}
         </p>
         <h4 class="menu-info-desktop__status--about--success text-center" v-else>
@@ -90,16 +90,14 @@ export default {
   beforeCreate () {},
   created () {},
   beforeMount () {},
-  mounted () {
-    this.setValues(this.liveDatas || 0)
-  },
+  mounted () {},
   beforeUpdate () {},
   updated () {},
   beforeDestroy () {},
   destroyed () {},
   data () {
     return {
-      status: 'delivering',
+      status: null,
       distance: 0,
       duration: 0,
       runAnimation: false

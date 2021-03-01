@@ -22,7 +22,7 @@
       </div>
 
       <div class="card-info-mobile__content--about text-left">
-        <p class="card-info-mobile__content--about--title text-center" v-if="status === 'delivering'">Saiu para Entrega</p>
+        <p class="card-info-mobile__content--about--title text-center" v-if="status === 'delivering' || status === null">Saiu para Entrega</p>
         <h4 class="card-info-mobile__content--about--success text-center" v-else>🎉 Parabéns - Pedido Entregue 🎉</h4>
       </div>
 

@@ -37,7 +37,6 @@ export default {
   computed: {},
   methods: {
     changeLocale (locale) {
-      console.log(this.$i18n.locale)
       this.$i18n.locale = locale
     }
   },
