@@ -1,11 +1,13 @@
 🚚 Projeto Uello
 
-> Projeto gerado com ** [Vue Cli 3] (https://cli.vuejs.org/ "Site Vue Cli 3") ** e ** [Vue.js 2x] (https://vuejs.org/ " Site Vue.js ") **, usando o padrão de design descrito neste [Documentos](https://jedicatvuejs.netlify.app/guide/vuejs/intalacao.html#estrutura-projeto).
+> Projeto gerado com **[Vue Cli 3](https://cli.vuejs.org/ "Site Vue Cli 3")** e **[Vue.js 2x](https://vuejs.org/ " Site Vue.js ")**, usando o padrão de design descrito neste [Documentos](https://jedicatvuejs.netlify.app/guide/vuejs/intalacao.html#estrutura-projeto).
 
 ## Sobre
 Projeto desenvolvido com Vuejs e suas bibliotecas, para compor uma área de serviço/controle da entregas de um cliente. Desário proposto pela Uello.
 
 <div style="text-align:center"><img src="https://media0.giphy.com/media/gRGy9yYXHfx1NdQdMP/giphy.gif" "Demonstração" /></div>
+
+[Link para acesso - Netlify](https://uello-system-test.netlify.app/)
 
 
 ## Desenvolvimento
@@ -26,9 +28,9 @@ Foi usado no desenvolvimento dessa aplicação:
 
 
 ### Important Explanation
-- ** [I18N] (https://github.com/kazupon/vue-cli-plugin-i18n) **, por padrão já fornece configurações para dois idiomas ** pt-BR ** e ** en ** . Para fornecer mais idiomas, basta criar os arquivos no diretório __src / locales__. Lembre-se de que você deve ter as mesmas chaves em todos os arquivos que estejam em perfeito estado de funcionamento. Este plugin é configurado com um idioma __default__ e um de __fallback__ _ "erro" _, para alterar ambos vá no arquivo __vue.config.js__ localizado na raiz do projeto e altere os campos __locale__ _ "represents the default" _ e __fallbackLocale__ _ "represents the fallback" _ para aqueles desejados. Ao alterar os idiomas __default__ e __fallbackLocale__, você deve alterar a [Variável de ambiente] (# Variavel-de-ambiente) nas chaves __VUE_APP_I18N_LOCALE__ _ "para o padrão e" _ and __VUE_APP_I18N_FALLBACK_LOCALE__ "for the fallback".
+- **[I18N] (https://github.com/kazupon/vue-cli-plugin-i18n)**, por padrão já fornece configurações para dois idiomas ** pt-BR ** e ** en ** . Para fornecer mais idiomas, basta criar os arquivos no diretório __src / locales__. Lembre-se de que você deve ter as mesmas chaves em todos os arquivos que estejam em perfeito estado de funcionamento. Este plugin é configurado com um idioma __default__ e um de __fallback__ _ "erro" _, para alterar ambos vá no arquivo __vue.config.js__ localizado na raiz do projeto e altere os campos __locale__ _ "represents the default" _ e __fallbackLocale__ _ "represents the fallback" _ para aqueles desejados. Ao alterar os idiomas __default__ e __fallbackLocale__, você deve alterar a [Variável de ambiente] (# Variavel-de-ambiente) nas chaves __VUE_APP_I18N_LOCALE__ _ "para o padrão e" _ and __VUE_APP_I18N_FALLBACK_LOCALE__ "for the fallback".
 
-- ** [vuex-persistedstate] (https://github.com/robinvdvleuten/vuex-persistedstate) **, persiste os dados de armazenamento atualizando a página em ** LocalStorage **, permitindo não excluir dados de ** Store ** abrindo outra guia no navegador ou mesmo atualizando a página. É de grande valor apagar os dados salvos em ** LocalStorage ** com o nome ** vuex ** ao fazer logoff ou mesmo fechar as guias do sistema com o gancho ** beforeDestroy ** ou ** destruído **.
+- **[vuex-persistedstate] (https://github.com/robinvdvleuten/vuex-persistedstate)**, persiste os dados de armazenamento atualizando a página em ** LocalStorage **, permitindo não excluir dados de ** Store ** abrindo outra guia no navegador ou mesmo atualizando a página. É de grande valor apagar os dados salvos em ** LocalStorage ** com o nome ** vuex ** ao fazer logoff ou mesmo fechar as guias do sistema com o gancho ** beforeDestroy ** ou ** destruído **.
 
 
 ### Variáveis de Ambiente
@@ -42,9 +44,9 @@ Crie os arquivos na raiz do seu projeto com os nomes:
 
 With the following structure and the appropriate values for your project:
 
-```json
+```js
 {
-  VUE_APP_KEY_NAME -  valor que você deseja
+  VUE_APP_KEY_NAME =  valor que você deseja
 }
 ```
 
